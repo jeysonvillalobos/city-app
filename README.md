@@ -1,6 +1,6 @@
 # City app
 
-City app is an application to see the best restaurants in various cities in the United States such as Miami, Seattle and Houston.
+City app is an application to see the best restaurants in various cities in the United States such as Miami, Seattle and Houston.\
 You can see the project at https://jeysonvillalobos.github.io/city-app/
 
 ## Available Scripts

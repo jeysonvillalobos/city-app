@@ -1,0 +1,18 @@
+.Loading {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.loading-icon {
+    width: 100px;
+    height: 100px;
+    background-image: url('../../assets/images/loading.gif');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}

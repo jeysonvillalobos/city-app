@@ -1,0 +1,43 @@
+.Message {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    border: 0 solid #d9dee3;
+    border-radius: 0.5rem;
+    background-color: white;
+    background-clip: padding-box;
+    border: 0 solid #d9dee3;
+    box-shadow: 0 2px 6px 0 rgb(67 89 113 / 12%);
+}
+
+.mesage-description {
+    width: 70%;
+    height: 100px;
+    padding: 40px 0px 0px 40px;
+}
+
+.message-title {
+    margin-bottom: 10px;
+    color: #6b6aff;
+}
+
+.message-text {
+    color: #707070;
+}
+
+.message-box-image {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.message-image {
+    width: 100%;
+    height: 90%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

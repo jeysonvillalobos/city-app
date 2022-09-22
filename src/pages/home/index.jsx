@@ -4,12 +4,19 @@ import manImage from '../../assets/images/man.png';
 import './style.css';
 import './homeResponsive.css'
 
-import getCity from '../../api/get-city';
+// Components
 import Menu from '../../components/menu';
 import CityCard from '../../components/city-card';
 import Pagination from '../../components/pagination';
 import Message from '../../components/message';
 import Loading from '../../components/loading';
+
+// API
+import getCity from '../../api/get-city';
+
+// Helpers
+import ScrollTo from '../../helpers/scroll-to';
+
 
 const Home = () => {
     const [cities,setCities] = useState([]);
@@ -34,11 +41,12 @@ const Home = () => {
     };
 
     const browsePagination = (pageId) => {
-        window.scrollTo({top: 0,behavior: "smooth"});
-        setLoading(true);
-        getCity(cities.current_city,pageId, (data) => {
-            setCities(data);
-            setLoading(false);
+        ScrollTo(0,() => {
+            setLoading(true);
+            getCity(cities.current_city,pageId, (data) => {
+                setCities(data);
+                setLoading(false);
+            });
         });
     };
    
@@ -89,5 +97,7 @@ const Home = () => {
         </div> 
     );
 };
+
+
 
 export default Home;

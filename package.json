@@ -1,7 +1,7 @@
 {
   "name": "city-app",
   "private": true,
-  "homepage": "http://jeysonvillalobos.github.io/city-app/",
+  "homepage": "https://jeysonvillalobos.github.io/city-app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

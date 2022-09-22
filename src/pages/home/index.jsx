@@ -4,6 +4,7 @@ import manImage from '../../assets/images/man.png';
 import './style.css';
 import './homeResponsive.css'
 
+import getCity from '../../api/get-city';
 import Menu from '../../components/menu';
 import CityCard from '../../components/city-card';
 import Pagination from '../../components/pagination';
@@ -13,24 +14,32 @@ import Loading from '../../components/loading';
 const Home = () => {
     const [cities,setCities] = useState([]);
     const [loading,setLoading] = useState(true);
-    const [currentCity,setCurrentCity] = useState('');
 
     useEffect(() => {
-        getCity('Houston',1,setCities,setCurrentCity,setLoading);
+        getCity('Houston',1, (data) => {
+            setCities(data);
+            setLoading(false);
+        });
     },[]);
 
     const handleInput = (e) => {
         if(e.keyCode === 13) {
             let city = e.target.value;
             setLoading(true);
-            getCity(city,1,setCities,setCurrentCity,setLoading);
+            getCity(city,1, (data) => {
+                setCities(data);
+                setLoading(false);
+            });
         }
     };
 
     const browsePagination = (pageId) => {
         window.scrollTo({top: 0,behavior: "smooth"});
         setLoading(true);
-        getCity(currentCity,pageId,setCities,setCurrentCity,setLoading);
+        getCity(cities.current_city,pageId, (data) => {
+            setCities(data);
+            setLoading(false);
+        });
     };
    
     return (
@@ -79,19 +88,6 @@ const Home = () => {
             </div>
         </div> 
     );
-};
-
-
-const getCity = (city,page, setState,setCurrentCity,setLoading) => {
-    fetch(`https://jsonmock.hackerrank.com/api/food_outlets?city=${city}&page=${page}`)
-        .then(data => data.json())
-        .then(rel => {
-            let sortData = rel.data.sort((a,b) => b.user_rating.average_rating - a.user_rating.average_rating);
-            setState({...rel, sortData});
-            setCurrentCity(city);
-            setLoading(false);
-        });
-
 };
 
 export default Home;

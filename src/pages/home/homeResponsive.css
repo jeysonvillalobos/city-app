@@ -2,7 +2,6 @@
     .City {
         width: 29% !important;
     }
-
     .circularProgress {
         width: 80px;
         height: 80px;
@@ -28,7 +27,6 @@
     #main-message {
         display: none;
     }
-
     .input {
         width: 100%;
     }

@@ -1,9 +1,13 @@
+import sortData from "../helpers/sort-data";
+
+const base_url = 'https://jsonmock.hackerrank.com/api/food_outlets';
+
 const getCity = (city,page,callback) => {
-    fetch(`https://jsonmock.hackerrank.com/api/food_outlets?city=${city}&page=${page}`)
+    fetch(`${base_url}?city=${city}&page=${page}`)
         .then(data => data.json())
         .then(rel => {
-            let sortData = rel.data.sort((a,b) => b.user_rating.average_rating - a.user_rating.average_rating);
-            callback({...rel, sortData,current_city: city});
+            let data = sortData(rel.data);
+            callback({...rel, data,current_city: city});
         });
 };
 
